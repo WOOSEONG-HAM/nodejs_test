@@ -21,6 +21,3 @@ nodeJS
 npm start
 ```
 
-### 운영 접속 URL
-미정
-
