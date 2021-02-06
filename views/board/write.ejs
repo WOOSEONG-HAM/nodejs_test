@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/read.css' />
+    <link rel="icon" href="#" />
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  </head>
+  
+  <%
+    var userId = userId;
+  %>
+
+  <body>
+    <h3><%= title %></h3>
+    <div class="board-read-btn-box">
+      <div class="board-read-btn"><a href="/api/board/list">뒤로가기</a></div>
+    </div>
+    <form method="post" action="/api/board/write" onsubmit="onWriteSubmit()">
+      <div id="board-read-table">
+        <div class="board-read-tr">
+          <div class="board-read-th">제목</div>
+          <div class="board-read-td">
+            <input type="text" name="title" id="title" required />
+          </div>
+        </div>
+        <div class="board-read-tr">
+          <div class="board-read-th">작성자</div>
+          <div class="board-read-td">
+            <input type="text" name="writer" id="writer" value="<%= userId %>" readonly />
+          </div>
+        </div>
+        <div class="board-read-tr">
+          <div class="board-read-th">비밀번호</div>
+          <div class="board-read-td">
+            <input type="password" name="password" id="password" required />
+          </div>
+        </div>
+        <div class="board-read-content">
+          <textarea name="content" id="content" required></textarea>
+        </div>
+        <div class="board-read-btn-box">
+          <input type="submit" class="submitBtn" value="등록">
+        </div>
+      </div>
+    </form>
+    <script>
+      function onWriteSubmit() {
+
+        if ( $("#writer").val().trim() == "" ) {
+          var message = "작성자를 입력해 주세요";
+          $("#writer").val("");
+          $("#writer").focus();
+          alert(message);
+          return false;
+        }
+
+        if ( $("#title").val().trim() == "" ){
+          var message = "제목을 입력해 주세요";
+          $("#title").val("");
+          $("#title").focus();
+          alert(message);
+          return false;
+        }
+
+        if ( $("#content").val().trim() == "" ){
+          var message = "내용을 입력해 주세요";
+          $("#content").val("");
+          $("#content").focus();
+          alert(message);
+          return false;
+        }
+
+        if ( $("#password").val().trim() == "" ){
+          var message = "패스워드를 입력해 주세요";
+          $("#password").val("");
+          $("#password").focus();
+          alert(message);
+          return false;
+        }
+
+      }
+    </script>
+  </body>
+</html>

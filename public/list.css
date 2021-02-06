@@ -1,0 +1,93 @@
+/* #board-list-table {
+ border: 1px solid #000;
+} */
+
+#board-list-table .board-list-tr {
+  width: 100%;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+#board-list-table .board-list-tr.th {
+  background-color: #fafafa;
+}
+
+#board-list-table .board-list-tr .board-list-th {
+  display: inline-block;
+  padding: 16px 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#board-list-table .board-list-tr .board-list-th.num {
+  width: 7%;
+}
+
+#board-list-table .board-list-tr .board-list-th.title {
+  width: 30%;
+}
+
+#board-list-table .board-list-tr .board-list-th.writer {
+  width: 10%;
+}
+
+#board-list-table .board-list-tr .board-list-th.hit {
+  width: 10%;
+}
+
+#board-list-table .board-list-tr .board-list-th.createdAt {
+  width: 20%;
+}
+
+#board-list-table .board-list-tr .board-list-th.updatedAt {
+  width: 20%;
+}
+
+#board-list-table .board-list-tr .board-list-td {
+  display: inline-block;
+  margin: 16px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+#board-list-table .board-list-tr .board-list-td.num {
+  width: 7%;
+}
+
+#board-list-table .board-list-tr .board-list-td.title {
+  width: 30%;
+}
+
+#board-list-table .board-list-tr .board-list-td.writer {
+  width: 10%;
+}
+
+#board-list-table .board-list-tr .board-list-td.hit {
+  width: 10%;
+}
+
+#board-list-table .board-list-tr .board-list-td.createdAt {
+  width: 20%;
+}
+
+#board-list-table .board-list-tr .board-list-td.updatedAt {
+  width: 20%;
+}
+
+.board-read-btn-box {
+  /* display: inline-block; */
+  text-align: right;
+}
+
+.board-read-btn {
+  text-align: center;
+  margin: 10px;
+  width: 100px;
+  height: 30px;
+  background-color: #44a2ff;
+  border-radius: 15px;
+}
+
+a:link { color: #fff; text-decoration: none;}
+a:visited { color: #fff; text-decoration: none;}
+a:hover { color: #fff; text-decoration: underline; cursor: pointer;}

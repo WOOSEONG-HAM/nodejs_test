@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' type="text/css" href='/read.css' />
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <link rel="icon" href="#" />
+  </head>
+  <%
+    var read = rows[0];
+    var userId = userId;
+  %>
+  <body>
+    <h3><%= title %></h3>
+    <div class="board-read-btn-box">
+      <%
+        if(read.writer === userId){
+      %>
+          <div id="updateBtn-Box" class="board-read-btn"><a href="/board/update/<%=read.id%>">수정하기</a></div>
+          <div id="deleteBtn-Box" class="board-read-btn delete" onclick="deleteItem(<%=read.id%>)">삭제하기</div>
+      <%
+        }
+      %>
+      <div class="board-read-btn"><a href="/api/board/list">뒤로가기</a></div>
+    </div>
+    <div id="board-read-table">
+      <div class="board-read-tr">
+        <div class="board-read-th">제목</div>
+        <div class="board-read-td"><%=read.title%></div>
+      </div>
+      <div class="board-read-tr">
+        <div class="board-read-th">작성자</div>
+        <div class="board-read-td"><%=read.writer%></div>
+      </div>
+      <div class="board-read-tr">
+        <div class="board-read-th createDate">등록일</div>
+        <div class="board-read-td createDate"><%=read.createdAt%></div>
+        <div class="board-read-th hit">조회수</div>
+        <div class="board-read-td hit"><%=read.hit%></div>
+      </div>
+      <div class="board-read-content">
+        <%=read.content%>
+      </div>
+    </div>
+  </body>
+    <script>
+
+      function deleteItem(id){
+
+        let deleteCheck = confirm("정말로 삭제하시겠습니까?");
+
+        if(deleteCheck === true) {
+          $.ajax({
+            url: `/delete/${id}`,
+            method: 'GET',
+          })
+          .done(function() {
+              alert("삭제 성공");
+              window.location.href='/api/board/list';
+          })
+          .fail(function() {
+              alert("삭제 실패");
+              window.location.href='/api/board/list';
+          })
+        } else if (deleteCheck === false) {
+
+        }
+
+      }
+
+    </script>
+</html>

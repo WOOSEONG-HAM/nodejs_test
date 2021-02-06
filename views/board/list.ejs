@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' type="text/css" href='/list.css' />
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <link rel="icon" href="#" />
+  </head>
+  <!-- <script>
+    $(document).ready(function(){
+
+      $.ajax({
+        url: `/api/board/list`,
+        method: 'GET',
+      })
+      .done(function() {
+          alert("요청 성공");
+      })
+      .fail(function() {
+          alert("요청 실패");
+      })
+
+    });
+  </script> -->
+  <body>
+    <h3><%= title %></h3>
+    <div class="board-read-btn-box">
+      <div class="board-read-btn"><a href="/board/write">글쓰기</a></div>
+      <div class="board-read-btn"><a href="/api/logout">로그아웃</a></div>
+    </div>
+    <div id="board-list-table">
+      <div class="board-list-tr th">
+        <div class="board-list-th num">번호</div>
+        <div class="board-list-th title">제목</div>
+        <div class="board-list-th writer">작성자</div>
+        <div class="board-list-th hit">조회수</div>
+        <div class="board-list-th createdAt">등록일</div>
+        <div class="board-list-th updatedAt">수정일</div>
+      </div>
+      <%
+      for(var i = 0; i<rows.length; i++)
+      {
+      %>
+      <div class="board-list-tr">
+        <div class="board-list-td num"><%=rows[i].id%></div>
+        <div class="board-list-td title"><a href="/board/read/<%=rows[i].id%>" style="color: black;"><%=rows[i].title%></a></div>
+        <div class="board-list-td writer"><%=rows[i].writer%></div>
+        <div class="board-list-td hit"><%=rows[i].hit%></div>
+        <div class="board-list-td createdAt"><%=rows[i].createdAt%></div>
+        <div class="board-list-td updatedAt"><%=rows[i].updatedAt%></div>
+      </div>
+      <%
+      }
+      %>
+    </div>
+  </body>
+</html>

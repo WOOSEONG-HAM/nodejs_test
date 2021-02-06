@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' type="text/css" href='/login.css' />
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <link rel="icon" href="#" />
+  </head>
+  <body>
+    <div class="login-page">
+        <div class="form">
+          <form class="register-form" action="/api/register" method="POST">
+            <input type="text" name="userId" placeholder="아이디"/>
+            <input type="password" name="password" placeholder="비밀번호"/>
+            <input type="text" name="name" placeholder="이름"/>
+            <input type="submit" class="button registerBtn" value="회원가입"/>
+            <p class="message">이미 가입하셨나요? <a href="#">로그인</a></p>
+          </form>
+          <form class="login-form" action="/api/login" method="POST">
+            <input type="text" name="userId" placeholder="아이디"/>
+            <input type="password" name="password" placeholder="비밀번호"/>
+            <input type="submit" class="button loginBtn" value="로그인"/>
+            <p class="message">아직 계정이 없으신가요? <a href="#">회원가입</a></p>
+          </form>
+        </div>
+      </div>
+  </body>
+  <script>
+    $('.message a').click(function(){
+        $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+    });
+  </script>
+</html>
